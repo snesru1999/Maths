@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int kthFactor(int n, int k) {
+        vector<int> f = {1, n};
+        for(int i=2;i<=n/2;i++){
+            if(n%i == 0)
+                f.push_back(i);
+        }
+        sort(f.begin(), f.end());
+        if(f.size()<k)
+            return -1;
+        return f[k-1];
+    }
+};
